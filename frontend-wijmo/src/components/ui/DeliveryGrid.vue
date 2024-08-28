@@ -38,6 +38,16 @@
         >
             <wj-flex-grid-filter :filterColumns="['RowHeader','orderId','riderId','pickupTime','deliveryStatus','deliveryStatusType',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
+            <wj-flex-grid-column binding="orderId" header="주문 ID" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <OrderId v-model="cell.item.orderId" :editMode="editMode"></OrderId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
+            <wj-flex-grid-column binding="riderId" header="라이더 ID" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <RiderId v-model="cell.item.riderId" :editMode="editMode"></RiderId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
             <wj-flex-grid-column binding="pickupTime" header="픽업 시간" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="deliveryStatus" header="배달 상태" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="deliveryStatusType" header="배달 상태 유형" width="2*" :isReadOnly="true" align="center" />

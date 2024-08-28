@@ -38,6 +38,16 @@
         >
             <wj-flex-grid-filter :filterColumns="['RowHeader','customerId','storeId','orderStatus','orderStatusType','orderTime','totalAmount','earnedPoints',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
+            <wj-flex-grid-column binding="customerId" header="고객 ID" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <CustomerId v-model="cell.item.customerId" :editMode="editMode"></CustomerId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
+            <wj-flex-grid-column binding="storeId" header="상점 ID" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <StoreId v-model="cell.item.storeId" :editMode="editMode"></StoreId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
             <wj-flex-grid-column binding="orderStatus" header="주문 상태" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="orderStatusType" header="주문 상태 유형" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="orderTime" header="주문 시간" width="2*" :isReadOnly="true" align="center" />

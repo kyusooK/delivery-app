@@ -38,6 +38,11 @@
         >
             <wj-flex-grid-filter :filterColumns="['RowHeader','orderId','amount','paymentMethod','paymentStatus','paymentStatusType','paymentTime','earnedPoints',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
+            <wj-flex-grid-column binding="orderId" header="주문 ID" width="2*" :isReadOnly="true" align="center">
+                <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
+                    <OrderId v-model="cell.item.orderId" :editMode="editMode"></OrderId>
+                </wj-flex-grid-cell-template>
+            </wj-flex-grid-column>
             <wj-flex-grid-column binding="amount" header="금액" width="2*" :isReadOnly="true" align="center">
                 <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">   
                     <Money v-model="cell.item.amount" :editMode="editMode"></Money>
@@ -108,11 +113,13 @@
 
 <script>
 import BaseGrid from '../base-ui/BaseGrid'
+import Payment from '../Payment.vue'
 
 export default {
     name: 'paymentGrid',
     mixins:[BaseGrid],
     components:{
+        Payment
     },
     data: () => ({
         path: 'payments',

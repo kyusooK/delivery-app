@@ -28,8 +28,8 @@ public class Delivery {
 
     private String deliveryStatus;
 
-    @Embedded
-    private deliveryStatusType deliveryStatusType;
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatusType deliveryStatusType;
 
     @PostPersist
     public void onPostPersist() {

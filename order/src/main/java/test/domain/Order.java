@@ -26,8 +26,8 @@ public class Order {
 
     private String orderStatus;
 
-    @Embedded
-    private orderStatusType orderStatusType;
+    @Enumerated(EnumType.STRING)
+    private OrderStatusType orderStatusType;
 
     private Date orderTime;
 

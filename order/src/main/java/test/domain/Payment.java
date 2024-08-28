@@ -28,8 +28,8 @@ public class Payment {
 
     private String paymentStatus;
 
-    @Embedded
-    private paymentStatusType paymentStatusType;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatusType paymentStatusType;
 
     private Date paymentTime;
 

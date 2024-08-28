@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BasePicker v-if="editMode" searchApiPath="orders" searchParameterName=""  idField="id" :nameField="nameField" path="orders" label="OrderId" v-model="value" @selected="pick" :editMode="editMode" />
+        <BasePicker v-if="editMode" searchApiPath="orders" searchParameterName=""  idField="id" nameField="orderStatusType" path="orders" label="OrderId" v-model="value" @selected="pick" :editMode="editMode" />
         <div v-else style="height:100%">
             <span>{{ value && value.name ? value.name : '' }}</span>
         </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import BaseEntity from './base-ui/BaseEntity'
+import BaseEntity from './base-ui/BaseEntity';
 
 export default {
     name: 'OrderId',
